@@ -102,21 +102,17 @@ client_b = Client("Client B")
 
 async def report_work():
     logging.info(f"start at {time.strftime('%X')}")
-    report_a = asyncio.create_task(client_a.report())
-    report_b = asyncio.create_task(client_b.report())
-    await report_a, report_b
+    await asyncio.gather(client_a.report(),
+                         client_b.report())
     while client_a.data == client_b.data:
-        report_a = asyncio.create_task(client_a.report())
-        report_b = asyncio.create_task(client_b.report())
-        await report_a, report_b
+        await asyncio.gather(client_a.report(),
+                             client_b.report())
 
 
 async def send_work():
     while client_a.success_timer != 5 and client_b.success_timer != 5:
         await asyncio.gather(client_a.starter(),
                              client_b.starter())
-    logging.info(f"client_a succceed {client_a.success_timer} times sending")
-    logging.info(f"client_b succceed {client_b.success_timer} times sending")
     logging.info(f"finish at {time.strftime('%X')}")
 
 
@@ -135,5 +131,6 @@ if __name__ == '__main__':
     start_time = time.time()
     asyncio.run(report_work())
     asyncio.run(send_work())
+    asyncio.run(report_work())
     finish_time = time.time()
     logging.info(f"finished in {finish_time - start_time}s")
