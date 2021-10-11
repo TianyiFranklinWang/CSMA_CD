@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>main module &#8212; CSMA/CD 1.0.0 documentation</title>
+    <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+    <link href="../_static/alabaster.css" rel="stylesheet" type="text/css"/>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link href="../genindex.html" rel="index" title="Index"/>
+    <link href="../search.html" rel="search" title="Search"/>
+
+    <link href="../_static/custom.css" rel="stylesheet" type="text/css"/>
+
+
+    <meta content="width=device-width, initial-scale=0.9, maximum-scale=0.9" name="viewport"/>
+
+</head>
+<body>
+
+
+<div class="document">
+    <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+            <div class="body" role="main">
+
+                <div class="section" id="module-main">
+                    <span id="main-module"></span>
+                    <h1>main module<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a>
+                    </h1>
+                    <dl class="py class">
+                        <dt id="main.Bus">
+                            <em class="property"><span class="pre">class</span> </em><code
+                                class="sig-prename descclassname"><span class="pre">main.</span></code><code
+                                class="sig-name descname"><span class="pre">Bus</span></code><a class="headerlink"
+                                                                                                href="#main.Bus"
+                                                                                                title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>
+                        </p>
+                            <p>A simulation of bus.</p>
+                            <p>Simulate the basic function and attributes of bus, It can receive and store data and
+                                indicate its own voltage level.</p>
+                            <dl class="py attribute">
+                                <dt id="main.Bus.data">
+                                    <code class="sig-name descname"><span class="pre">data</span></code><a
+                                        class="headerlink" href="#main.Bus.data"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>A tuple with max length of 5 elements to receive and store data.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt>
+                                    <code class="sig-name descname"><span class="pre">voltage_flag</span> <span
+                                            class="pre">=</span> <span class="pre">An</span> <span
+                                            class="pre">integer</span> <span class="pre">indicates</span> <span
+                                            class="pre">current</span> <span class="pre">Bus</span> <span class="pre">voltage</span>
+                                        <span class="pre">level.</span></code></dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="id0">
+                                    <code class="sig-name descname"><span class="pre">data</span></code><em
+                                        class="property"> <span class="pre">=</span> <span class="pre">[None,</span>
+                                    <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span>
+                                    <span class="pre">None]</span></em><a class="headerlink" href="#id0"
+                                                                          title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Bus.voltage_flag">
+                                    <code class="sig-name descname"><span class="pre">voltage_flag</span></code><em
+                                        class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a
+                                        class="headerlink" href="#main.Bus.voltage_flag"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd></dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="py class">
+                        <dt id="main.Client">
+                            <em class="property"><span class="pre">class</span> </em><code
+                                class="sig-prename descclassname"><span class="pre">main.</span></code><code
+                                class="sig-name descname"><span class="pre">Client</span></code><span class="sig-paren">(</span><em
+                                class="sig-param"><span class="n"><span class="pre">name</span></span></em><span
+                                class="sig-paren">)</span><a class="headerlink" href="#main.Client"
+                                                             title="Permalink to this definition">¶</a></dt>
+                        <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>
+                        </p>
+                            <p>A simulation of client on the ethernet.</p>
+                            <p>Simulate an ethernet client who is able to report and reset its own status, generate data
+                                needed to be sent and send
+                                data under CSMA/CD protocol.</p>
+                            <dl class="py attribute">
+                                <dt id="main.Client._max_collision_endure">
+                                    <code class="sig-name descname"><span
+                                            class="pre">_max_collision_endure</span></code><a class="headerlink"
+                                                                                              href="#main.Client._max_collision_endure"
+                                                                                              title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>A constant set to 16 indicates max collision collision_time that can be endured
+                                    before dropping</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt>
+                                    <code class="sig-name descname"><span class="pre">the</span> <span
+                                            class="pre">data</span> <span class="pre">and</span> <span class="pre">report</span>
+                                        <span class="pre">failure.</span></code></dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.name">
+                                    <code class="sig-name descname"><span class="pre">name</span></code><a
+                                        class="headerlink" href="#main.Client.name"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>A string object describing the name of the client instance.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.data">
+                                    <code class="sig-name descname"><span class="pre">data</span></code><a
+                                        class="headerlink" href="#main.Client.data"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>A string with length of 5 carrying data to be sent.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.success_timer">
+                                    <code class="sig-name descname"><span class="pre">success_timer</span></code><a
+                                        class="headerlink" href="#main.Client.success_timer"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>An integer object times the number of successful sending action.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.fail_timer">
+                                    <code class="sig-name descname"><span class="pre">fail_timer</span></code><a
+                                        class="headerlink" href="#main.Client.fail_timer"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>An integer object times the number of failed sending action.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.global_timer">
+                                    <code class="sig-name descname"><span class="pre">global_timer</span></code><a
+                                        class="headerlink" href="#main.Client.global_timer"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>An integer object times the number of sending action either succeed or fail.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.collision_timer">
+                                    <code class="sig-name descname"><span class="pre">collision_timer</span></code><a
+                                        class="headerlink" href="#main.Client.collision_timer"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>An integer object set to be same value of _max_collision_endure as default times
+                                    the number of</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt>
+                                    <code class="sig-name descname"><span class="pre">collision</span> <span
+                                            class="pre">on</span> <span class="pre">a</span> <span
+                                            class="pre">single</span> <span class="pre">sending</span> <span
+                                            class="pre">procedure</span> <span class="pre">and</span> <span class="pre">will</span>
+                                        <span class="pre">be</span> <span class="pre">reset</span> <span
+                                                class="pre">to</span> <span class="pre">default</span> <span
+                                                class="pre">value</span> <span class="pre">after</span> <span
+                                                class="pre">every</span> <span class="pre">sending</span> <span
+                                                class="pre">procedure.</span></code></dt>
+                                <dd></dd>
+                            </dl>
+
+                            <dl class="py attribute">
+                                <dt id="main.Client.send_ok">
+                                    <code class="sig-name descname"><span class="pre">send_ok</span></code><a
+                                        class="headerlink" href="#main.Client.send_ok"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>A integer object set to 0 as default to indicate whether data has all been sent
+                                    out.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.collision_handler">
+                                    <em class="property"><span class="pre">async</span> </em><code
+                                        class="sig-name descname"><span class="pre">collision_handler</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.collision_handler"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Handle collision according to current situation.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.get_backoff_time">
+                                    <code class="sig-name descname"><span
+                                            class="pre">get_backoff_time</span></code><span
+                                        class="sig-paren">(</span><em class="sig-param"><span class="n"><span
+                                        class="pre">collision_time</span></span></em><span class="sig-paren">)</span><a
+                                        class="headerlink" href="#main.Client.get_backoff_time"
+                                        title="Permalink to this definition">¶</a></dt>
+                                <dd><p>Generate backoff time.</p>
+                                    <p>Generate backoff time using binary exponential backoff algorithm and collision
+                                        time given.</p>
+                                    <dl class="field-list simple">
+                                        <dt class="field-odd">Parameters</dt>
+                                        <dd class="field-odd"><p><strong>collision_time</strong> – An integer value
+                                            indicating how many times collisions have happened.</p>
+                                        </dd>
+                                        <dt class="field-even">Returns</dt>
+                                        <dd class="field-even"><p>Randomly decide backoff time.</p>
+                                        </dd>
+                                    </dl>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.get_data">
+                                    <code class="sig-name descname"><span class="pre">get_data</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.get_data"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Generate new data to send</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.report">
+                                    <em class="property"><span class="pre">async</span> </em><code
+                                        class="sig-name descname"><span class="pre">report</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.report"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Report current status.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.reset_all">
+                                    <code class="sig-name descname"><span class="pre">reset_all</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.reset_all"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Generate new data and reset all timer to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.reset_collision_timer">
+                                    <code class="sig-name descname"><span
+                                            class="pre">reset_collision_timer</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.reset_collision_timer"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Reset collision timer to default.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.send">
+                                    <em class="property"><span class="pre">async</span> </em><code
+                                        class="sig-name descname"><span class="pre">send</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.send"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Kick start sending procedure.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.sender">
+                                    <em class="property"><span class="pre">async</span> </em><code
+                                        class="sig-name descname"><span class="pre">sender</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.sender"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Send data under CSMA/CD protocol.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.update_timer_on_failure">
+                                    <code class="sig-name descname"><span
+                                            class="pre">update_timer_on_failure</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.update_timer_on_failure"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Update all related timer if sending procedure fail.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.update_timer_on_success">
+                                    <code class="sig-name descname"><span
+                                            class="pre">update_timer_on_success</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.update_timer_on_success"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Update all related timer if sending procedure succeed.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.validate_sending">
+                                    <code class="sig-name descname"><span
+                                            class="pre">validate_sending</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.validate_sending"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Validate sending data and update related timer and indicator.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="py method">
+                                <dt id="main.Client.wait_util_free">
+                                    <em class="property"><span class="pre">async</span> </em><code
+                                        class="sig-name descname"><span class="pre">wait_util_free</span></code><span
+                                        class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                     href="#main.Client.wait_util_free"
+                                                                                                     title="Permalink to this definition">¶</a>
+                                </dt>
+                                <dd><p>Monitor Bus until it’s free.</p>
+                                </dd>
+                            </dl>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="py function">
+                        <dt id="main.clear_log">
+                            <code class="sig-prename descclassname"><span class="pre">main.</span></code><code
+                                class="sig-name descname"><span class="pre">clear_log</span></code><span
+                                class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                             href="#main.clear_log"
+                                                                                             title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="py function">
+                        <dt id="main.report_work">
+                            <em class="property"><span class="pre">async</span> </em><code
+                                class="sig-prename descclassname"><span class="pre">main.</span></code><code
+                                class="sig-name descname"><span class="pre">report_work</span></code><span
+                                class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                             href="#main.report_work"
+                                                                                             title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="py function">
+                        <dt id="main.send_work">
+                            <em class="property"><span class="pre">async</span> </em><code
+                                class="sig-prename descclassname"><span class="pre">main.</span></code><code
+                                class="sig-name descname"><span class="pre">send_work</span></code><span
+                                class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink"
+                                                                                             href="#main.send_work"
+                                                                                             title="Permalink to this definition">¶</a>
+                        </dt>
+                        <dd><p>Send 5 times of data.</p>
+                        </dd>
+                    </dl>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+        <div class="sphinxsidebarwrapper">
+            <h1 class="logo"><a href="../index.html">CSMA/CD</a></h1>
+
+
+            <h3>Navigation</h3>
+
+            <div class="relations">
+                <h3>Related Topics</h3>
+                <ul>
+                    <li><a href="../index.html">Documentation overview</a>
+                        <ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="searchbox" role="search" style="display: none">
+                <h3 id="searchlabel">Quick search</h3>
+                <div class="searchformwrapper">
+                    <form action="../search.html" class="search" method="get">
+                        <input aria-labelledby="searchlabel" name="q" type="text"/>
+                        <input type="submit" value="Go"/>
+                    </form>
+                </div>
+            </div>
+            <script>$('#searchbox').show(0);</script>
+
+
+        </div>
+    </div>
+    <div class="clearer"></div>
+</div>
+<div class="footer">
+    &copy;2021, Tianyi Wang.
+
+    |
+    Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.0</a>
+    &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    |
+    <a href="../_sources/rst/main.rst.txt"
+       rel="nofollow">Page source</a>
+</div>
+
+
+</body>
+</html>
