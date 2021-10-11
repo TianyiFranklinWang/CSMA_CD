@@ -12,14 +12,19 @@ class Bus:
 
 class Client:
     def __init__(self, name):
+        self._max_collision_endure = 16
+
         self.name = name
+
         self.data = str(random.randrange(10000, 99999))
+
         self.success_timer = 0
         self.fail_timer = 0
         self.global_timer = 0
+
         self.collision_timer = 16
+
         self.send_ok = 0
-        self._max_collision_endure = 16
 
     async def report(self):
         message = f"\ndata:               {self.data}\n" \
@@ -64,6 +69,7 @@ class Client:
         bus_data = ''
         for i in range(len(Bus.data)):
             bus_data += Bus.data[i]
+
         if bus_data == self.data:
             logging.info(f"{self.name} send success")
             self.update_timer_on_success()
@@ -88,6 +94,7 @@ class Client:
 
     async def collision_handler(self):
         message = f"{self.name} send collision"
+
         Bus.voltage_flag -= 1
         self.collision_timer -= 1
         if self.collision_timer == 0:
@@ -95,14 +102,18 @@ class Client:
             logging.info(f"{self.name} send failed")
             self.update_timer_on_failure()
             return 1
+
         backoff_time = self.get_backoff_time(self._max_collision_endure - self.collision_timer)
+
         message += f", backoff for {backoff_time}s"
         logging.info(message)
+
         await asyncio.sleep(backoff_time)
         return 0
 
     async def sender(self):
         self.send_ok = 0
+
         await asyncio.sleep(0.00096)
         while self.send_ok == 0:
             Bus.voltage_flag += 1
@@ -130,6 +141,7 @@ client_b = Client("Client B")
 async def report_work():
     await asyncio.gather(client_a.report(),
                          client_b.report())
+
     while client_a.data == client_b.data:
         await asyncio.gather(client_a.report(),
                              client_b.report())
@@ -154,8 +166,10 @@ if __name__ == '__main__':
                         ])
 
     start_time = time.time()
+
     asyncio.run(report_work())
     asyncio.run(send_work())
     asyncio.run(report_work())
+
     finish_time = time.time()
     logging.info(f"finished in {finish_time - start_time}s")
