@@ -27,7 +27,7 @@ class Client:
     data under CSMA/CD protocol.
 
     Attributes:
-         _max_collision_endure: A constant set to 16 indicates max collision time that can be endured before dropping
+         _max_collision_endure: A constant set to 16 indicates max collision collision_time that can be endured before dropping
          the data and report failure.
          name: A string object describing the name of the client instance.
          data: A string with length of 5 carrying data to be sent.
@@ -95,18 +95,18 @@ class Client:
         while Bus.voltage_flag != 0:
             await asyncio.sleep(0.0001)
 
-    def get_backoff_time(self, time):
+    def get_backoff_time(self, collision_time):
         """Generate backoff time.
 
         Generate backoff time using binary exponential backoff algorithm and collision time given.
 
         Args:
-            time: An integer value indicating how many times collisions have happened.
+            collision_time: An integer value indicating how many times collisions have happened.
 
         Returns:
             Randomly decide backoff time.
         """
-        k = time if time <= 10 else 10
+        k = collision_time if collision_time <= 10 else 10
         r = random.randrange(0, 2 ** k - 1)
         return r * 0.00512
 
@@ -175,8 +175,7 @@ class Client:
                     fail_flag = await self.collision_handler()
                     if fail_flag:
                         return
-                    else:
-                        break
+                    break
                 else:
                     logging.info("sending not activate")
 
