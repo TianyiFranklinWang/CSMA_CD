@@ -13,7 +13,7 @@ class Bus:
 
     Attributes:
         data: A tuple with max length of 5 elements to receive and store data.
-        voltage_flag = An integer indicates current Bus voltage level.
+        voltage_flag: An integer indicates current Bus voltage level.
     """
 
     data = [None for _ in range(5)]
@@ -27,8 +27,8 @@ class Client:
     data under CSMA/CD protocol.
 
     Attributes:
-         _max_collision_endure: A constant set to 16 indicates max collision collision_time that can be endured before dropping
-         the data and report failure.
+         _max_collision_endure: A constant set to 16 indicates max collision collision_time that can be endured before
+         dropping the data and report failure.
          name: A string object describing the name of the client instance.
          data: A string with length of 5 carrying data to be sent.
          success_timer: An integer object times the number of successful sending action.

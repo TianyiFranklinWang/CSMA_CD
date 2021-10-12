@@ -3027,8 +3027,7 @@
 
         return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-    }
-
+    };
     var rsingleTag = (/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i);
 
 
@@ -4133,6 +4132,8 @@
         // A fallback to window.onload, that will always work
         window.addEventListener("load", completed);
     }
+
+
 
 
 // Multifunctional method to get and set values of a collection
@@ -8594,6 +8595,8 @@
     });
 
 
+
+
 // Return jQuery for attributes-only inclusion
 
 
@@ -10100,6 +10103,8 @@
     });
 
 
+
+
 // Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
     jQuery.ajaxPrefilter(function (s) {
         if (s.crossDomain) {
@@ -10257,6 +10262,8 @@
             return "script";
         }
     });
+
+
 
 
 // Support: Safari 8 only
@@ -10712,6 +10719,8 @@
         });
 
 
+
+
 // Support: Android <=4.0 only
 // Make sure we trim BOM and NBSP
     var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
@@ -10783,6 +10792,7 @@
             "" :
             (text + "").replace(rtrim, "");
     };
+
 
 
 // Register as a named AMD module, since jQuery can be concatenated with other
