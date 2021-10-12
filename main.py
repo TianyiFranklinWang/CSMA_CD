@@ -125,7 +125,7 @@ class Client:
         else:
             self.update_timer_on_failure()
             self.reset_collision_timer()
-            logging.info(
+            logging.error(
                 f"{self.name} send failed, bus_data: {bus_data} not correspond to self.data: {self.data}")
 
     async def send(self):
@@ -148,7 +148,7 @@ class Client:
         self.collision_timer -= 1
         if self.collision_timer == 0:
             logging.info(message)
-            logging.info(f"{self.name} send failed")
+            logging.error(f"{self.name} send failed")
             self.update_timer_on_failure()
             return 1
 
